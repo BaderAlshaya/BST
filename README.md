@@ -17,7 +17,7 @@ For the purpose of this data structure, we will start by reading string inputs f
 
 . Remove all string contents from the tree.
 
-(A makefile is used to run the program.)
+(A makefile will be used to run the program.)
 
 # The sprints of this project to its completion is as follow:
 
