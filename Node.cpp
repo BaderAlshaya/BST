@@ -24,9 +24,9 @@ int Node::copy(Node *&original)
 {
     if (original == NULL)
         return 0;
-    this->data = original->data; //deep copy data
-    this->left = original->left; //deep copy left
-    this->right = original->right; //deep copy right
+    this->data = original->data; //deep copy of data
+    this->left = original->left; //deep copy of left
+    this->right = original->right; //deep copy of right
     return 1;
 }
 

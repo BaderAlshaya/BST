@@ -22,7 +22,9 @@ class BST : public Node
     int copy(Node *&, Node *&);
     int insert(Node *&, string &);
     int retrieve(Node *&, string &, BST &);
+    int display(Node *&, string &);
     int display_all(Node *&);
+    int remove(Node *&, string &);
     int remove_all(Node *&);
 };
 

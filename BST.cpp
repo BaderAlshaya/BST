@@ -50,7 +50,7 @@ int BST::insert(Node *&this_node, string &input)
 int BST::retrieve(string &input, BST &matches)
 {
     return retrieve(this->root, input, matches);
-}
+} //helper function
 int BST::retrieve(Node *&this_node, string &input, BST &matches)
 {
     if (!this_node)
@@ -62,6 +62,10 @@ int BST::retrieve(Node *&this_node, string &input, BST &matches)
 
 //display function - prints out all matching contents within the BST
 int BST::display(string &input)
+{
+    return display(this->root, input);
+} //helper function
+int BST::display(Node *&this_node, string &input)
 {
     return 0;
 }
@@ -80,6 +84,10 @@ int BST::display_all(Node *&this_node)
 
 //remove function - removes all matching contents from the BST
 int BST::remove(string &input)
+{
+    return display(this->root, input);
+} //helper function
+int BST::remove(Node *&this_node, string &input)
 {
     return 0;
 }
