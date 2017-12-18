@@ -43,7 +43,9 @@ int BST::insert(Node *&this_node, string &input)
         this_node = new Node;
         return this_node->set_data(input);
     }
-    return (this_node->compare(input)) ? insert(this_node->get_left(), input) : insert(this_node->get_right(), input);
+    if (this_node->compare(input) == 1) //this_node comes after input
+        return insert(this_node->get_left(), input);
+    return insert(this_node->get_right(), input);
 }
 
 //retrieve function - inserts all the matches of a string input into the passed BST

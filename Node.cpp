@@ -24,8 +24,8 @@ int Node::copy(Node *&original)
 {
     if (original == NULL)
         return 0;
-    this->data = original->data; //deep copy of data
-    this->left = original->left; //deep copy of left
+    this->data = original->data;   //deep copy of data
+    this->left = original->left;   //deep copy of left
     this->right = original->right; //deep copy of right
     return 1;
 }
@@ -33,7 +33,11 @@ int Node::copy(Node *&original)
 //compare function - compares the current data string with the one being passed
 int Node::compare(string &input)
 {
-    return (this->data > input); //true(return 1) = the input comes after | false(return 0) = the input comes before
+    if (this->data < input)
+        return -1;
+    if (this->data == input)
+        return 0;
+    return 1;
 }
 
 //set function - sets this data string to match the one being passed
