@@ -15,15 +15,18 @@ int main()
         cout << "ERROR! THE FILE IS EMPTY!\n";
     else
     {
-        int count;
+        int count1;
+        string input;
+        
         while (!file.eof())
         {
             string name;
             getline(file, name);
             obj1.insert(name);
         }
-        count = obj1.display_all();
-        cout << "This tree has " << count << " nodes!" << endl;
+        count1 = obj1.display_all();
+        cout << "This tree has " << count1 << " nodes!" << endl;
+        obj1.retrieve(input, obj2);
     }
     file.close();
     file.clear();

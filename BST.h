@@ -10,7 +10,6 @@ class BST : public Node
     BST(BST &);
     ~BST();
     int copy(BST &);
-
     int insert(string &);
     int retrieve(string &, BST &);
     int display(string &);
@@ -20,10 +19,11 @@ class BST : public Node
 
   private:
     Node *root;
-
     int copy(Node *&, Node *&);
     int insert(Node *&, string &);
+    int retrieve(Node *&, string &, BST &);
     int display_all(Node *&);
+    int remove_all(Node *&);
 };
 
 #endif

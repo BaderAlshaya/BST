@@ -14,6 +14,7 @@ class Node
     int copy(Node *&);
     int compare(string &);
     int set_data(string &);
+    string &get_data();
     Node *&get_left();
     Node *&get_right();
     int display();

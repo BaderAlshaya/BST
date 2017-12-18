@@ -19,32 +19,34 @@ Node::~Node()
     right = NULL;
 }
 
-//copy function - creates a hard copy of the passed Node object into this Node object
+//copy function - creates a deep copy of the passed Node object into this Node object
 int Node::copy(Node *&original)
 {
     if (original == NULL)
         return 0;
-    this->data = original->data;
-    this->left = original->left;
-    this->right = original->right;
+    this->data = original->data; //deep copy data
+    this->left = original->left; //deep copy left
+    this->right = original->right; //deep copy right
     return 1;
 }
 
 //compare function - compares the current data string with the one being passed
 int Node::compare(string &input)
 {
-    if (input <= this->data)
-        return 0; //go left
-    return 1;     //go right
+    return (this->data > input); //true(return 1) = the input comes after | false(return 0) = the input comes before
 }
 
 //set function - sets this data string to match the one being passed
 int Node::set_data(string &input)
 {
-    unsigned int length = input.length();
-    if (length)
-        this->data = input;
-    return length;
+    this->data = input;
+    return 0;
+}
+
+//get function - returns a copy of the data
+string &Node::get_data()
+{
+    return this->data;
 }
 
 //get function - returns a pointer of this left Node

@@ -18,7 +18,7 @@ BST::~BST()
     remove_all();
 }
 
-//copy function - creates a hard copy of the passed Node object into this Node object
+//copy function - creates a deep copy of the passed Node object into this Node object
 int BST::copy(BST &original)
 {
     return copy(this->root, original.root);
@@ -41,19 +41,26 @@ int BST::insert(Node *&this_node, string &input)
     if (!this_node)
     {
         this_node = new Node;
-        this_node->set_data(input);
-        return 1;
+        return this_node->set_data(input);
     }
-    return (!this_node->compare(input)) ? insert(this_node->get_left(), input) : insert(this_node->get_right(), input);
+    return (this_node->compare(input)) ? insert(this_node->get_left(), input) : insert(this_node->get_right(), input);
 }
 
-//
-int BST::retrieve(string &input, BST &original)
+//retrieve function - inserts all the matches of a string input into the passed BST
+int BST::retrieve(string &input, BST &matches)
 {
-    return 0;
+    return retrieve(this->root, input, matches);
+}
+int BST::retrieve(Node *&this_node, string &input, BST &matches)
+{
+    if (!this_node)
+        return 0;
+    if (this_node->compare(input) == 0)
+        matches.insert(this_node->get_data());
+    return retrieve(this_node->get_left(), input, matches) + retrieve(this_node->get_right(), input, matches);
 }
 
-//
+//display function - prints out all matching contents within the BST
 int BST::display(string &input)
 {
     return 0;
@@ -71,16 +78,26 @@ int BST::display_all(Node *&this_node)
     return display_all(this_node->get_left()) + this_node->display() + display_all(this_node->get_right());
 }
 
-//
+//remove function - removes all matching contents from the BST
 int BST::remove(string &input)
 {
     return 0;
 }
 
-//
+//remove function - removes and clear out the entire contents of the BST
 int BST::remove_all()
 {
-    return 0;
+    return remove_all(this->root);
+} //helper function
+int BST::remove_all(Node *&this_node)
+{
+    if (!this_node)
+        return 0;
+    remove_all(this_node->get_left());
+    remove_all(this_node->get_right());
+    delete this_node;
+    this_node = NULL;
+    return 1;
 }
 
 //end
