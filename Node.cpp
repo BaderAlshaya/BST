@@ -47,6 +47,20 @@ int Node::set_data(string &input)
     return 0;
 }
 
+//set function - sets the left node to match the one being passed
+int Node::set_left(Node *&left)
+{
+    this->left = left;
+    return 1;
+}
+
+//set function - sets the right node to match the one being passed
+int Node::set_right(Node *&right)
+{
+    this->right = right;
+    return 0;
+}
+
 //get function - returns a copy of the data
 string &Node::get_data()
 {
