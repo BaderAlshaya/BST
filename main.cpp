@@ -13,7 +13,7 @@ int main()
         cout << "ERROR! THE FILE IS EMPTY!\n";
     else
     {
-        BST obj1, obj2;                    //one tree to store all the data, another to retrieve some data
+        BST obj1, obj2; //one tree to store all the data, another to retrieve some data
         string key = "Isaac Newton"; //a key string to use for "display/remove/retrieve matches" functions
 
         while (!file.eof()) //insert the data of the file to the BST
