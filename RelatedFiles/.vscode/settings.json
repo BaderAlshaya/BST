@@ -1,0 +1,28 @@
+{
+    "files.associations": {
+        "__locale": "cpp",
+        "__string": "cpp",
+        "string": "cpp",
+        "string_view": "cpp",
+        "algorithm": "cpp",
+        "iostream": "cpp",
+        "iosfwd": "cpp",
+        "__bit_reference": "cpp",
+        "ios": "cpp",
+        "__functional_03": "cpp",
+        "functional": "cpp",
+        "bitset": "cpp",
+        "initializer_list": "cpp",
+        "iterator": "cpp",
+        "memory": "cpp",
+        "system_error": "cpp",
+        "__functional_base": "cpp",
+        "atomic": "cpp",
+        "chrono": "cpp",
+        "limits": "cpp",
+        "locale": "cpp",
+        "ratio": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp"
+    }
+}
