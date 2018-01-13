@@ -4,10 +4,7 @@
 
 int main()
 {
-    BST obj1;
-    BST obj2;
     ifstream file;
-    string key = "Archimedes"; //a key string to test "display/remove matches" functions
 
     file.open("input.txt");
     if (!file.is_open())
@@ -16,35 +13,39 @@ int main()
         cout << "ERROR! THE FILE IS EMPTY!\n";
     else
     {
-        int count1;
-        string input;
+        BST obj1, obj2;                    //one tree to store all the data, another to retrieve some data
+        string key = "Isaac Newton"; //a key string to use for "display/remove/retrieve matches" functions
 
-        while (!file.eof())
+        while (!file.eof()) //insert the data of the file to the BST
         {
             string name;
             getline(file, name);
             obj1.insert(name);
         }
+
         cout << "---------------------------------------------------------------------\n";
-        cout << "ORIGINAL LIST:\n\n";
-        count1 = obj1.display_all();
-        cout << "This tree has " << count1 << " nodes!" << endl;
-        obj1.retrieve(input, obj2);
+        cout << "TEST BST FUNCTIONS\n";
         cout << "---------------------------------------------------------------------\n";
-        cout << "Looking for matches to DISPLAY:\n";
+        cout << "ORIGINAL LIST:\n"; //display the content of the entire BST object after inserting
+        cout << obj1.display_all() << " item(s) in the tree\n";
+        cout << "---------------------------------------------------------------------\n";
+        cout << "Looking for matches to RETRIEVE:\n";
+        obj1.retrieve(obj2, key); //retrieves all instances of a key string
+        cout << obj2.display_all() << " item(s) retrieved!\n";
+        cout << "---------------------------------------------------------------------\n";
+        cout << "Looking for matches to DISPLAY:\n"; //display all instances of a key string
         cout << obj1.display(key) << " matche(s) displayed!\n";
         cout << "---------------------------------------------------------------------\n";
-        cout << "Looking for matches to REMOVE:\n";
+        cout << "Looking for matches to REMOVE:\n"; //remove all instances of a key string
         cout << obj1.remove(key) << " matche(s) removed!\n";
         cout << "---------------------------------------------------------------------\n";
-        cout << "MODIFIED LIST:\n\n";
-        count1 = obj1.display_all();
-        cout << "This tree has " << count1 << " node(s)!" << endl;
+        cout << "MODIFIED LIST:\n"; ////display the content of the entire BST object after removing
+        cout << obj1.display_all() << " item(s) in the tree\n";
         cout << "---------------------------------------------------------------------\n";
     }
     file.close();
     file.clear();
-    return 0;
+    return 1;
 }
 
 //end
