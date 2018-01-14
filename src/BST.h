@@ -16,6 +16,9 @@ public:
   int display_all();
   int remove_all();
   int remove(string &);
+  BST operator=(BST &);
+  BST operator+=(string &);
+  friend ostream &operator<<(ostream &, BST &);
 
 private:
   Node *root;

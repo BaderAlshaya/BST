@@ -27,6 +27,7 @@ int BST::copy(Node *&this_node, Node *&copy_node)
 {
     if (!copy_node)
         return 0;
+    this_node = new Node;
     this_node->copy(copy_node); //call Node class copy function
     return copy(this_node->get_left(), copy_node->get_left()) + copy(this_node->get_right(), copy_node->get_right()) + 1;
 }
@@ -126,7 +127,7 @@ int BST::remove(Node *&this_node, string &input)
 
     if (value == 0)
     {
-        get_successor(this_node); //find the right successor
+        get_successor(this_node);             //find the right successor
         match = remove(this_node, input) + 1; //keep looking for other matches and count
     }
     else if (value == -1) //no match, keep following the alphabetical order
@@ -137,7 +138,7 @@ int BST::remove(Node *&this_node, string &input)
 } //helper function - removes the target Node and replace it with a right successor
 int BST::get_successor(Node *&t_node)
 {
-    Node *temp = t_node; //hold target Node to be removed
+    Node *temp = t_node;                //hold target Node to be removed
     Node *s_node = t_node->get_right(); //hold successor Node to be replaced with the target Node
 
     if (s_node) //check if the target node have a right child successor
@@ -167,6 +168,33 @@ int BST::get_successor(Node *&s_node, Node *&this_node)
     else
         get_successor(s_node, this_node->get_left());
     return 1;
+}
+
+//overloading function - using the '=' operator to make a deep copy of another BST
+BST BST::operator=(BST &original)
+{
+    if (this->root == NULL)
+        copy(original);
+    else
+    {
+        remove_all();
+        copy(original);
+    }
+    return *this;
+}
+
+//overloading function - unsing the '+=' operator to insert an input into the BST
+BST BST::operator+=(string &input)
+{
+    insert(input);
+    return *this;
+}
+
+//overloading function - using the '<<' operator to display all the contents within the BST
+ostream &operator<<(ostream &out, BST &obj)
+{
+    out << obj.display_all();
+    return out;
 }
 
 //end
