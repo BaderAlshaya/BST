@@ -21,15 +21,15 @@ For the purpose of this data structure, we will start by reading string inputs f
 
 # The sprints of this project to its completion is as follow:
 
-# V1*: 
+# V1.0*: 
 Implement a basic structure of the data structure and ensure the support of all previous functions.
-# V2*:
+# V1.1*:
 Overload operators wherever possible and commit all the changes.
-# V3*:
+# V1.2*:
 Use const references wherever possible and commit all the changes.
-# V4*: 
+# V1.3*: 
 Switch the entire data structure and its functionality into a template form and commit all the changes.
-# V5*:
+# V1.4*:
 Include unit tests for the entire application.
 
-(Current Status: Working on V2*)
+(Current Status: Working on 1.4*)
